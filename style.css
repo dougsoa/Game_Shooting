@@ -4,6 +4,7 @@
   width: 800px;
   margin: auto;
   position: relative;
+  overflow: hidden;
 }
 
 .enemy {
@@ -11,7 +12,16 @@
   height: 400px;
   position: absolute;
   background-color: beige;
-  bottom: 0px;
+  bottom: -400px;
+  transition: all 0.5s;
+}
+
+.enemy.showing {
+  bottom: 0;
+}
+
+.enemy.shooting {
+  background-color: red;
 }
 
 #enemy1 {
@@ -28,4 +38,9 @@
 }
 #enemy5 {
   left: 645px;
+}
+
+.enemy.dead {
+  background-color: gray;
+  height: 50px;
 }
