@@ -14,6 +14,7 @@ function enemyAttacksMe(enemy) {
 
 function enemyShootsMe(enemy) {
   enemy.classList.add('shooting')
+  updateHealthPoints(healthPoints - 20)
   setTimeout(() => {
     enemy.classList.remove('shooting')
   }, 200)
@@ -34,4 +35,15 @@ function randomEnemyAttacks() {
     enemyAttacksMe(enemy)
     randomEnemyAttacks()
   }, randomDelay)
+}
+
+var healthPoints = 100
+function updateHealthPoints(points) {
+  healthPoints = points
+  var healthBar = document.querySelector('#healthBar')
+  healthBar.style.width = points + '%'
+  if (healthPoints < 1) {
+    alert('Game Over!')
+    window.location.reload()
+  }
 }
