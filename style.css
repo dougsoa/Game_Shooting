@@ -11,7 +11,7 @@
   width: 150px;
   height: 400px;
   position: absolute;
-  background-color: Black;
+  background-color: beige;
   bottom: -400px;
   transition: all 0.5s;
 }
@@ -43,4 +43,14 @@
 .enemy.dead {
   background-color: gray;
   height: 50px;
+}
+
+#healthBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 100%;
+  background-color: coral;
+  transition: width 0.5s;
 }
