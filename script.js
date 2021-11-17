@@ -1,5 +1,9 @@
 function iShoot(enemy) {
   enemy.classList.add('dead')
+  if (!livingEnemies().length) {
+    alert('Game Over!')
+    window.location.reload()
+  }
 }
 
 function enemyAttacksMe(enemy) {
@@ -13,11 +17,13 @@ function enemyAttacksMe(enemy) {
 }
 
 function enemyShootsMe(enemy) {
-  enemy.classList.add('shooting')
-  updateHealthPoints(healthPoints - 20)
-  setTimeout(() => {
-    enemy.classList.remove('shooting')
-  }, 200)
+  if (!enemy.classList.contains('dead')) {
+    enemy.classList.add('shooting')
+    updateHealthPoints(healthPoints - 20)
+    setTimeout(() => {
+      enemy.classList.remove('shooting')
+    }, 200)
+  }
 }
 
 function livingEnemies() {
@@ -47,3 +53,4 @@ function updateHealthPoints(points) {
     window.location.reload()
   }
 }
+
